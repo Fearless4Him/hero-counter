@@ -1,13 +1,25 @@
 body {
-    background-image: url("yarn.jpeg");
-    background-size: cover;
+    --bg-image: url("https://www.outoflives.net/wp-content/uploads/2019/07/MCU.jpg");
+    --bg-image-opacity: .25;
+    
     font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
     text-align: center;
-    height: 100vh;
+    height: 100%;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    opacity: var(--bg-image-opacity);
+    
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
 }
 
 .container {
-    background: white;
     max-width: 80%;
     margin: auto;
     border: 3px solid black;
@@ -26,25 +38,32 @@ h2 {
 }
 
 button {
-    border: 1px solid black;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 100vmax;
+    padding: 1em 2.5em;
     color: white;
+    line-height: 1;
     font-weight: bold;
-    width: 200px;
-    margin-bottom: 5px;
-    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 #increment-btn {
-    background: #2C2891;
+    background: darkred;
+    box-shadow: 0 1.125em 1em -1em darkred;
+}
+
+#increment-btn:hover,
+#increment-btn:focus-visible {
+    background: firebrick;
 }
 
 #save-btn {
-    background: #1C7947;
+    background: darkgreen;
+    box-shadow: 0 1.125em 1em -1em darkgreen;
 }
 
-#save-el {
-    font-weight: bold;
+#save-btn:hover,
+#save-btn:focus-visible {
+    background: forestgreen;
 }
-
